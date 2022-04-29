@@ -36,6 +36,8 @@ function UI() {
   };
   UI.prototype.completeTask = function (e) {
     const task = e.target.parentElement.parentElement;
+    const id = task.dataset.createdat;
+    ls.completeTask(id);
     task.classList.toggle("completed");
   };
 }
