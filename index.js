@@ -12,3 +12,11 @@ document.querySelector(".AddTaskBtn").addEventListener("click", (e) => {
     console.log(task);
   }
 });
+
+document.querySelector(".task-list").addEventListener("click", function (e) {
+  // console.log(e.target.className);
+  if (e.target.className.includes("task__op_delete")) {
+    // console.log("Delete Button Prssed");
+    ui.deleteTask(e);
+  }
+});

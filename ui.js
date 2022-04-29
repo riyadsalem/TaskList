@@ -23,4 +23,9 @@ UI.prototype.resetForm = function () {
   document.querySelector("#newtaskID").value = null;
 };
 
+UI.prototype.deleteTask = function (e) {
+  const task = e.target.parentElement.parentElement;
+  task.remove();
+};
+
 export default UI;
