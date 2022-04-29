@@ -1,5 +1,11 @@
+import Task from "./task.js";
+import UI from "./ui.js";
+
+const ui = new UI();
 document.querySelector(".AddTaskBtn").addEventListener("click", (e) => {
-  // console.log(e.target);
   const textTitle = document.querySelector("#newtaskID").value;
-  console.log(textTitle);
+  const task = new Task(textTitle);
+  ui.addToUI(task);
+  ui.resetForm();
+  console.log(task);
 });
