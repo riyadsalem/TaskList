@@ -19,4 +19,7 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
     // console.log("Delete Button Prssed");
     ui.deleteTask(e);
   }
+  if (e.target.className.includes("task-check")) {
+    ui.completeTask(e);
+  }
 });
