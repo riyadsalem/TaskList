@@ -40,4 +40,11 @@ function LS() {
     return tasks.find((tasks) => tasks.id === id);
   };
 }
+
+LS.prototype.updateTask = function (taskId, taskTitle) {
+  let tasks = this.fetchTask();
+  let index = tasks.findIndex((tasks) => tasks.id === taskId);
+  tasks[index].title = taskTitle;
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
 export default LS;
