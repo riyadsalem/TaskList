@@ -71,11 +71,40 @@ function UI() {
     const task = e.target.parentElement.parentElement;
     const id = task.dataset.createdat;
     const data = ls.findTask(id);
-    document.querySelector("#newtaskID").value = data.title;
-    document.querySelector("#updateTaskId").value = data.id;
-    document.querySelector(".AddTaskBtn").style.display = "none";
-    document.querySelector(".EditTaskBtn").style.display = "inline";
-    document.querySelector(".CancelTaskBtn").style.display = "inline";
+    this.QuerySelectorAll(data.title, data.id, "none", "inline", "inline");
   };
 }
+
+UI.prototype.updateTask = function (e) {
+  const taskId = document.querySelector("#updateTaskId").value;
+  const taskTitle = document.querySelector("#newtaskID").value;
+  const tasks = document.querySelectorAll(".task-title");
+  // console.log(tasks);
+
+  if (taskTitle.length > 0) {
+    tasks.forEach((title) => {
+      if (title.parentElement.parentElement.dataset.createdat === taskId) {
+        title.innerText = taskTitle;
+      }
+    });
+  }
+  this.QuerySelectorAll("", "", "inline", "none", "none");
+};
+
+UI.prototype.cancelTask = function (e) {};
+
+UI.prototype.QuerySelectorAll = function (
+  newtaskID,
+  updateTaskId,
+  AddTaskBtn,
+  EditTaskBtn,
+  CancelTaskBtn
+) {
+  document.querySelector("#newtaskID").value = newtaskID;
+  document.querySelector("#updateTaskId").value = updateTaskId;
+  document.querySelector(".AddTaskBtn").style.display = AddTaskBtn;
+  document.querySelector(".EditTaskBtn").style.display = EditTaskBtn;
+  document.querySelector(".CancelTaskBtn").style.display = CancelTaskBtn;
+};
+
 export default UI;

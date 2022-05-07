@@ -31,3 +31,11 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
     ui.completeTask(e);
   }
 });
+
+document.querySelector(".EditTaskBtn").addEventListener("click", (e) => {
+  ui.updateTask(e);
+});
+
+document.querySelector(".CancelTaskBtn").addEventListener("click", (e) => {
+  ui.cancelTask(e);
+});
