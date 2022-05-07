@@ -33,5 +33,11 @@ function LS() {
     }
     localStorage.setItem("tasks", JSON.stringify(tasks));
   };
+
+  LS.prototype.findTask = function (id) {
+    // console.log(id); // tRuE
+    let tasks = this.fetchTask();
+    return tasks.find((tasks) => tasks.id === id);
+  };
 }
 export default LS;
